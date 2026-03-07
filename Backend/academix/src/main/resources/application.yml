@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: academix
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/academix_db
+    username: postgres
+    password: "#@r!0314"
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    defer-datasource-initialization: true
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# JWT Configuration
+app:
+  jwt:
+    secret: YWNhZGVtaXhTZWNyZXRLZXlGb3JKV1RBdXRoZW50aWNhdGlvbjIwMjVDb2xsZWdlRGVwdE1nbXQ=
+    expiration-ms: 86400000  # 24 hours
+
+# SpringDoc / Swagger
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+
+server:
+  port: 8080
